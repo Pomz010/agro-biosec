@@ -1,0 +1,927 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    display: flex;
+    padding: 0.75rem;
+    list-style-type: none;
+    margin: 1.25rem 0;
+}
+
+/* input[type="text"] {
+    text-transform: uppercase;
+} */
+
+body {
+    background: url("../img/bg2.jpg") no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Red Hat display", Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.menu-card {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin: 0 2rem;
+    place-content: center;
+}
+
+section {
+    margin-bottom: 1%;
+    /* margin-bottom: 3.5rem; */
+    /* font-size: 1.5rem; */
+}
+
+legend{
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+fieldset {
+    border: 1px solid rgb(148, 148, 148);
+    padding: 0.5rem;
+}
+
+.container {
+    grid-column: 1 / span 8;
+}
+
+.back-btn {
+    background-color: rgb(231, 229, 220);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    color: rgb(0, 0, 0);
+    font-family: "Red Hat display", Arial, Helvetica, sans-serif;;
+    font-weight: bold;
+}
+
+.header-logo-container {
+    text-align: center;
+    margin: 2rem;
+}
+
+.form-main-containter {
+    padding: 0 2.5rem;
+    display: grid;
+}
+
+.form-sheet {
+    background-color: rgb(231, 229, 220);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.form-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    padding: 1.5rem 0;
+}
+
+.form-sheet__sub-header {
+    font-weight: bold;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    transform: scale(1.75);
+}
+
+.user-input-container {
+    display: block;
+    padding: 0;
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+.user-input__label {
+    font-size: 1.25rem;
+}
+
+.user-input__inputBox {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.25rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.employee-list__searchbox.parent-container {
+    width: 100%;
+}
+
+.personalInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.personalInfo fieldset {
+    width: 48%;
+}
+
+.brgyContainer, 
+.cityContainer,
+.otherDetails {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.businessUnitContainer{
+    display: none;
+}
+
+.question-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.user-input__answer {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+
+.question-container p {
+    max-width: 38rem;
+}
+
+.error-message {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgb(221, 60, 60);
+}
+
+
+.user-input__answer label {
+    display: block;
+    font-weight: lighter;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.form-sheet__section-d {
+    text-align: center;
+}
+
+.form-sheet__aggreement-note {
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.form-sheet--submit-btn {
+    padding: 0.75rem 2.5rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+}
+
+.travelled-outside-city {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 0.5rem;
+}
+
+/* HOMEPAGE */
+.menu-container {
+    height: 100vh;
+    place-content: center;
+    grid-column: 1 / span 8;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    background-color: rgb(231, 229, 220);
+    column-gap: 0.5rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    max-width: 45rem;
+    height: 32rem;
+    box-shadow: 2.5px 2.5px 2px rgb(134, 134, 134);
+}
+
+.card-container__header {
+    grid-column: 1 / span 2;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(56, 56, 56);
+    font-family: "Red Hat display", Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.card__employees {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+}
+
+.card__visitors {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 1rem;
+    margin: 0 auto;
+    box-shadow: 2.5px 2.5px 2px rgb(184, 184, 184);
+}
+
+.card p {
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 1rem 0;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+/* Styles for login.html */
+.login-form__logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.login-header {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 100vh;
+    margin: 0 2rem; 
+    place-content: center;
+    place-items: center;
+    text-align: center;
+}
+
+.login-form__card-container{
+    grid-column: 3 / span 4;
+    background-color: rgb(231, 229, 220);
+    padding: 2rem;
+    min-width: 25rem;
+    border-radius: 1rem;
+}
+
+.form-container > input {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.login-credentials {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.login-submitBtn {
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+/* Styles for response_filter.html */
+.admin-page__container {
+    place-content: center;
+    text-align: center;
+    row-gap: 1rem;
+    margin-bottom: 2.5%;
+    column-gap: 0.5rem;
+    position: relative;
+}
+
+.page-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.new-employee-page {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.header-nav {
+    background-color: rgb(22, 30, 48);
+}
+
+.header-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.header-nav span {
+    display: flex;
+}
+
+.header-nav li {
+    margin: 0;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+}
+
+.header-nav li:hover {
+    background-color: rgb(39, 151, 67);
+}
+
+.nav-active {
+    background-color: rgb(39, 151, 67);
+}
+
+.header-nav li {
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+}
+
+.date-filter__card-container {
+    grid-column: 3 / span 4;
+    background-color: rgb(231, 229, 220);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    min-width: 25rem;
+    max-width: 15rem;
+    border-radius: 1rem;
+    top: 15%;
+    position: relative;
+    box-shadow: 2.5px 2.5px 2px rgb(184, 184, 184);
+}
+
+.filter-header {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.filter-parameter {
+    margin-bottom: 0.75rem;
+}
+
+label.filter-input {
+    text-align: start;
+    padding: 0rem;
+    font-weight: bold;
+}
+
+.input-box {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.filter-input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Styles for employee_list.html */
+table, th, tr, td {
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+caption {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #e6eff5; /* Alternate row background */
+}
+
+[role="navigation"] {
+    grid-column: 2 / span 6;
+    place-self: center;
+}
+
+[role="navigation"] > div:first-child {
+    display: none;
+}
+
+[role="navigation"] div {
+    display: block;
+    text-align: center;
+}
+
+[role="navigation"] p {
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 0;
+}
+
+.employee-list__table-container {
+    grid-column: 2 / span 10;
+    grid-column: 1 / span 8;
+    margin: 0 2.5rem;
+}
+
+.edit-button {
+    border: none;
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding: 0.10rem 0.5rem;
+}
+
+.employee-list__create-search {
+    grid-column: 1 / span 8;
+    margin: 0 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.employee-list__create-search div {
+    display: flex;
+    align-items: anchor-center;
+}
+
+.employee-list__searchbox {
+    width: 30rem;
+    border: none;
+    padding: 0.25rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.25rem;
+    display: inline-flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    position: relative;
+}
+
+.employee-list__searchbox input,
+.employee-list__searchbox input:focus {
+    border: none;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    outline: none;
+}
+
+.employee-list__searchbox input:focus {
+    border: none;
+    width: 100%;
+    left: 0;
+    outline: none;
+}
+
+.employee-list__searchbox button {
+    padding: 0.25rem 0.75rem;
+    background-color: rgb(53, 70, 104);
+    color: rgb(157, 169, 192);
+    border-radius: 1rem;
+    margin-left: 0.25rem;
+}
+
+.__new-employee-btn {
+    background-color: rgb(53, 70, 104);
+    color: rgb(157, 169, 192);
+    padding: 0.25rem 1rem;
+    display: inline-flex;
+    border-radius: 1rem
+}
+
+.search-result-container {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.form.search-result-container {
+    top: 3rem;
+    z-index: 1;
+}
+
+.search-result {
+    cursor: pointer;
+    margin: 0;
+    z-index: 1;
+    padding: 0.5rem 3rem;
+    font-size: 1.5rem;
+}
+
+/* UPDATE EMPLOYEE MODAL */
+.update-modal-container {
+    border-radius: 1rem;
+    border: none;
+    padding: 0;
+    grid-column: 3 / span 4;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    place-self: center;
+    max-width: 30rem;
+    margin: 1.5rem 0;
+}
+
+.update-modal-container form {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.modal-header {
+    background-color: rgb(22, 30, 48);
+    color: rgb(255, 255, 255);
+    padding: 0.75rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.5rem;
+}
+
+.data-container {
+    display: flex;
+    gap: 2rem;
+    margin: .75rem 0;
+    justify-content: space-between;
+}
+
+.data-container label {
+    display: inline-flex;
+    align-self: center
+}
+
+.data-container .updated {
+    padding: 0.25rem 0.5rem;
+    min-width: 15rem;
+    border: 1px solid #ababab;
+    border-radius: .5rem;
+    color: revert;
+}
+
+.data-container.resigned-container {
+    justify-content: start;
+}
+
+.resigned-checkbox {
+    align-items: start;
+    align-content: start;
+    position: relative;
+}
+
+.resigned-container {
+    gap: 3.5rem;
+}
+
+.updated.emp-email{
+    text-transform: lowercase;
+}
+
+.updated.emp-status {
+    position: absolute;
+    left: 0.5rem;
+    align-self: anchor-center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: end;
+    border-top: 1px solid rgb(22, 30, 48);;
+    padding: 1rem 0;
+}
+
+.update-btn {
+    font-weight: bold;
+    margin-left: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.button-container > .cancelBtn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(48, 48, 48);
+    border: 1px solid rgb(126, 126, 126);
+}
+
+.admin-page__container.update-page {
+    height: 100vh;
+    position: static;
+    margin-bottom: 0;
+    place-content: normal;
+}
+    
+.update-error, .create-error {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: rgb(206, 83, 83);
+    text-align: left;
+}
+
+/* USER MANAGEMENT PAGE */
+
+.create-user__section {
+    grid-column: 1 /span 2;
+    height: 100vh;
+    background-color: #d6d6e7;
+    padding: 0 1rem;
+}
+
+.create-user__form-header {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.create-user__input-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    flex-direction: column;
+}
+
+.create-user__section form {
+    position: relative;
+    top: 5rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.create-user__input-box {
+    background-color: rgb(255, 255, 255);
+    padding: 0.25rem;
+}
+
+.user-list__section {
+    grid-column: 3 / span 6;
+    margin: 0 1rem;
+}
+
+.user-list__section table {
+    position: relative;
+    top: 5rem;
+}
+
+.create-user__input-box.user-searchbox {
+    width: 100%;
+}
+
+.user-search-result {
+    margin: 0;
+}
+
+.create-userBtn{
+    background-color: rgb(39, 151, 67);
+    padding: 0.25rem 1rem;
+}
+
+.user-actions {
+    display: flex;
+}
+
+.user-actions li {
+    margin: 0;
+}
+
+/* CHANGE PASSWORD PAGE */
+.change-password-page {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin: 0 2rem;
+    place-content: center;
+    height: 100vh;
+}
+
+.change-password__container {
+    grid-column: 3 / span 4;
+    background-color: rgb(231, 229, 220);
+    padding: 1.5rem 24px;
+    border-radius: 1.5rem;
+    height: 25rem;
+    max-height: 70vh;
+    box-shadow: 2.5px 2.5px 2px rgb(134, 134, 134);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 40rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.change-password__section.form {
+    width: 100%;
+}
+
+.change-password__section.rules {
+    width: 65%;
+}
+
+.change-password__input-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+}
+
+.change-password__input-box {
+    border: 1px solid rgb(39, 151, 67);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.password-rules li {
+    margin: 0;
+    padding: 0;
+}
+
+.change-password__sub-header {
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.change-password__main-header {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.change-password--btn {
+    background-color: rgb(39, 151, 67);
+    color:  rgb(255, 255, 255);
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+}
+
+.change-password--btn.cancel {
+    text-align: center;
+    margin: 0.5rem 0;
+    display: block;
+    background-color: rgb(22, 30, 48);
+    color: rgb(255, 255, 255);;
+}
+
+.delete-user {
+    cursor: pointer;
+}
+
+/* DELETE USER MODAL */
+.delete-confirmation-container__modal {
+    margin: auto;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    max-width: 25rem;
+    border-radius: 0.5rem;
+}
+
+.delete-confirmation-container__modal::backdrop{
+    background: rgb(0 0 0 / .4);
+}
+
+.delete-confirmation-header__modal{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.delete-confirmation-message__modal {
+    margin: 1.5rem 0;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+.delete-user-btn--modal{
+    background-color: rgb(39, 151, 67);
+    color: rgb(255, 255, 255);
+}
+
+.delete-user-btn--modal:hover {
+    background-color: rgb(48, 182, 81);
+}
+
+.cancel-btn--modal {
+    border: 1px solid rgb(141, 141, 141);
+}
+
+.cancel-btn--modal:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media (min-width: 1408px) {
+
+    .user-list__section {
+        grid-column: 4 / span 8;
+        /* grid-column: 3 / span 6;
+        margin: 0 1rem; */
+    }
+
+    [role="navigation"] {
+        grid-column: 2 / span 10;
+        place-self: center;
+    }
+
+    .employee-list__table-container {
+        grid-column: 2 / span 10;
+        margin: unset;
+    }
+
+    .employee-list__create-search {
+        grid-column: 2 / span 10;
+        margin: unset;
+    }
+
+    .page-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .container {
+        grid-column: 2 / span 6;
+    }
+
+    .update-modal-container {
+        grid-column: 5 / span 4;
+    }
+
+}
