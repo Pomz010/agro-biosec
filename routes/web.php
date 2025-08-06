@@ -37,7 +37,7 @@ Route::middleware('auth', ChangePassword::class)->group(function(){
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destory');
-    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
 
     Route::get('/back', [ChangePasswordController::class, 'previousPage'])->name('previous.page');
 });

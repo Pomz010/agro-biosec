@@ -85,7 +85,7 @@
                                     <ul class="user-actions">
                                         <li><a href="{{ route('change.password', $user->id) }}"><img src="{{ asset('img/pass_reset_icon.png') }}" height="25" width="25" alt="Reset password" title="Reset password"></a></li>
                                         <li><button class="delete-user" data-user-id="{{ $user->id }}"><img src="{{ asset('img/del_user.png') }}" height="25" width="25" alt="Delete user" title="Delete user"></button></li>
-                                        <li><a href="{{ route('users.show', $user->id) }}"><img src="{{ asset('img/update_role.png') }}" height="25" width="25" alt="Update role" title="Update role"></a></li>
+                                        <li><a href="{{ route('users.edit', $user->id) }}"><img src="{{ asset('img/update_role.png') }}" height="25" width="25" alt="Update role" title="Update role"></a></li>
                                     </ul>
                                 </td>
                             </tr>

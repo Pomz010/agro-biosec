@@ -12,16 +12,16 @@ use Illuminate\Http\RedirectResponse;
 class DashboardController extends Controller
 {
     public function create(Request $request){
-            $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
-            ->select(
-                'users.id',
-                'respondents.firstname', 
-            )
-            ->get();
+        $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
+        ->select(
+            'users.id',
+            'respondents.firstname', 
+        )
+        ->get();
 
-        foreach($users as $user){
-            if($user->id === Auth::user()->id){
-                return view('employee-create', ['user' => $user]);
+        foreach($users as $currentUser){
+            if($currentUser->id === Auth::user()->id){
+                return view('employee-create', ['currentUser' => $currentUser]);
             }
         }
     }
@@ -74,9 +74,9 @@ class DashboardController extends Controller
             )
             ->get();
 
-        foreach($users as $user){
-            if($user->id === Auth::user()->id){
-                return view('update-employee', ['employee' => $respondent, 'user' => $user]);
+        foreach($users as $currentUser){
+            if($currentUser->id === Auth::user()->id){
+                return view('update-employee', ['employee' => $respondent, 'currentUser' => $currentUser]);
             }
         }
     }
@@ -106,9 +106,9 @@ class DashboardController extends Controller
 
             $employees = $query->paginate(15); // Apply pagination after potential filtering
 
-            foreach($users as $user){
-                if($user->id === Auth::user()->id){
-                    return view('employee_list', ['employees' => $employees, 'user' => $user]);
+            foreach($users as $currentUser){
+                if($currentUser->id === Auth::user()->id){
+                    return view('employee_list', ['employees' => $employees, 'currentUser' => $currentUser]);
                 }
             }
     }

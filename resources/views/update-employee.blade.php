@@ -1,7 +1,7 @@
 <x-layout>
     {{-- UPDATE USER --}}
     <main class="admin-page__container update-page">
-        <x-header-nav navActive="employee-management" :currentUser="$user"/>
+        <x-header-nav navActive="employee-management" :currentUser="$currentUser"/>
         <div class="update-modal-container" id="modalContainer">
             <h2 class="modal-header">Update Info</h2>
             <form action="{{ route('employee.update', $employee->id) }}" method="POST">

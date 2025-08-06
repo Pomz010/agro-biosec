@@ -2,7 +2,7 @@
     <main class="employee-management__page">
 
         {{-- @dd($users[0]) --}}
-        <x-header-nav :currentUser="$user" navActive="employee-management" />
+        <x-header-nav :currentUser="$currentUser" navActive="employee-management" />
 
         <div class="page-container">
             {{-- EMPLOYEE SEARCH BAR --}}

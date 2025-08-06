@@ -81,7 +81,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(User $user)
     {
         $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
             ->select(
@@ -94,10 +94,13 @@ class UserController extends Controller
                 'users.force_password_change'
             )
             ->get();
+        $admins = $user->load('respondent');
 
-        foreach($users as $user){
-            if($user->id === Auth::user()->id){
-                return view('update-user', ['updatedUser' => $users, 'user' => $user]);
+        // dd($user);
+
+        foreach($users as $currentUser){
+            if($currentUser->id === Auth::user()->id){
+                return view('update-user', ['currentUser' => $currentUser, 'admin' => $admins]);
             }
         }
     }
@@ -107,7 +110,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        dd($user);
     }
 
     /**

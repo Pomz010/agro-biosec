@@ -1,6 +1,6 @@
 <x-layout>
     <main class="admin-page__container update-page">
-        <x-header-nav navActive="employee-management" :currentUser="$user" />
+        <x-header-nav navActive="employee-management" :currentUser="$currentUser" />
         <div class="page-container new-employee-page">
                     <div class="update-modal-container" id="modalContainer">
             <h2 class="modal-header">Add New Employee</h2>

@@ -1,7 +1,7 @@
 <x-layout>
     {{-- UPDATE USER --}}
     <main class="admin-page__container update-page">
-        <x-header-nav navActive="employee-management" :currentUser="$user"/>
+        <x-header-nav navActive="employee-management" :currentUser="$currentUser"/>
         <div class="update-modal-container" id="modalContainer">
             <h2 class="modal-header">Update Info</h2>
             <form action="#" method="POST">
@@ -9,23 +9,23 @@
                 @method('PUT')
                     <div class="data-container">
                         <label for="user-name">Name:</label>
-                        <input type="hidden" name="user_id" id="user_id" value="{{ $user->id }}" hidden>
+                        <input type="hidden" name="user_id" id="user_id" value="{{ $admin->id }}" hidden>
                         <div>
-                            <input class="updated user-name" type="text" name="user-name" id="userName" disabled value="{{ $user->firstname }} {{ $user->lastname }}">
+                            <input class="updated user-name" type="text" name="user-name" id="userName" disabled value="{{ $admin->firstname }} {{ $admin->lastname }}">
                         </div>
                     </div>
                 
                     <div class="data-container">
                         <label for="user-email">Email:</label>
                         <div>
-                            <input class="updated user-email" type="email" name="user-email" id="userEmail" disabled value="{{ $user->email }}">
+                            <input class="updated user-email" type="email" name="user-email" id="userEmail" disabled value="{{ $admin->email }}">
                         </div>
                     </div>
 
                     <div class="data-container">
                         <label for="employee_id">Employee ID:</label>
                         <div>
-                            <input class="updated emp-number" type="text" name="employee_id" id="empId" disabled value="{{ $user->employee_id }}">
+                            <input class="updated emp-number" type="text" name="employee_id" id="empId" disabled value="{{ $admin->employee_id }}">
                         </div>
                     </div>
 
