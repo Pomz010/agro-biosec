@@ -89,7 +89,7 @@ if(document.querySelector('#visitorVisitedOtherFarmTrue')){
     })
 }
 
-// Will use plain gray background color for admin page
+// Will use plain gray background color for admin pages
 document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('#adminPage')){
         document.querySelector('body').style.background = "none";
@@ -125,9 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                     hiddenId: hiddenInputBox
                                 });
 
-                                selection.select();
-
-                                resultsContainer.remove();
+                                try {
+                                    selection.select();
+                                } catch (error) {
+                                // code to handle the error
+                                } finally {
+                                    resultsContainer.remove();
+                                }                                
                             })
                         })
                     }

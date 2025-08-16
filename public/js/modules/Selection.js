@@ -10,10 +10,8 @@ export class Selection{
         this.#privateSelectedEmployee.hiddenId.value = this.#privateSelectedEmployee.employeeId;
         this.#privateSelectedEmployee.emailInputBox.value = this.#privateSelectedEmployee.selectedEmployee.dataset.email;
 
-        // if(this.#privateSelectedEmployee.userEmail){
-        //     this.#privateSelectedEmployee.emailInputBox.value = this.#privateSelectedEmployee.userEmail;
-        // }
-
         console.log(this.#privateSelectedEmployee.emailInputBox.value);
     }
+
+    
 }

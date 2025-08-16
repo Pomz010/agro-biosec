@@ -83,6 +83,14 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        // 
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
         $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
             ->select(
                 'users.id',
@@ -94,31 +102,29 @@ class UserController extends Controller
                 'users.force_password_change'
             )
             ->get();
-        $admins = $user->load('respondent');
 
-        // dd($user);
+        $user = User::findOrFail($id);
 
         foreach($users as $currentUser){
-            if($currentUser->id === Auth::user()->id){
-                return view('update-user', ['currentUser' => $currentUser, 'admin' => $admins]);
-            }
+            return view('update-user', ['currentUser' => $currentUser, 'admins' => $users, 'user' => $user]);
         }
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        dd($user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'role' => ['required']
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 
     /**

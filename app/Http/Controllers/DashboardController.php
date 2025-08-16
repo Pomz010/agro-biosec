@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee_response;
 use App\Models\User;
 use App\Models\Respondent;
 use Illuminate\Http\Request;
@@ -11,6 +12,25 @@ use Illuminate\Http\RedirectResponse;
 
 class DashboardController extends Controller
 {
+    public function responseLogsIndex(){
+        $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
+        ->select(
+            'users.id',
+            'respondents.firstname', 
+        )
+        ->get();
+
+        // eager load respondents and questionnaires
+        $responses = Employee_response::with(['respondent', 'questionnaire'])->get();
+
+        // dd($emp_response);
+        foreach($users as $user){
+            if($user->id === Auth::user()->id){
+                return view('response-logs', ['user' => $user, 'responses' => $responses]);
+            }
+        };
+    }
+
     public function create(Request $request){
         $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
         ->select(

@@ -155,6 +155,6 @@ class EmployeeFormController extends Controller
             'answer' => $response['followBiosecProtocols']
         ]);
 
-        return view('index');
+        return redirect()->route('form-menu.show');
     }
 }

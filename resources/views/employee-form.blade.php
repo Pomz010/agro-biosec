@@ -5,7 +5,7 @@
             <div class="header-logo-container">
                 <img src="{{ asset('img/apc_logo.png') }}" alt="Agripacific Logo" width="250" height="150">
             </div>
-            <form  class="form-sheet" action="/employee-response/submit" method="post" id="employeeForm">
+            <form  class="form-sheet" action="{{ route('emp-response.store') }}" method="post" id="employeeForm">
                 @csrf
                 <h1 class="form-header">Farm Employee Biosecurity Assessment</h1>
 

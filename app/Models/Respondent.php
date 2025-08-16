@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Employee_response;
 
 class Respondent extends Model
 {
@@ -13,8 +15,10 @@ class Respondent extends Model
         'emp_status' => 'boolean',
     ];
 
+    protected $table = 'respondents';
+
     public function response(): HasMany {
-        return $this->hasMany(Employee_response::class);
+        return $this->hasMany(Employee_response::class, 'respondents_id');
     }
 
     public function user(){

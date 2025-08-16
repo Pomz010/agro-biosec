@@ -11,11 +11,11 @@ use App\Http\Controllers\VisitorFormController;
 use App\Http\Controllers\EmployeeFormController;
 use App\Http\Controllers\ChangePasswordController;
 
-Route::get('/form-menu', [MenuController::class, 'showMenu']);
+Route::get('/form-menu', [MenuController::class, 'showMenu'])->name('form-menu.show');
 
 // Employee response related routes
-Route::get('/employee-response/create', [EmployeeFormController::class, 'createResponse']);
-Route::post('/employee-response/submit', [EmployeeFormController::class, 'submitEmployeeResponse']);
+Route::get('/employee-response/create', [EmployeeFormController::class, 'createResponse'])->name('emp-response.create');
+Route::post('/employee-response/submit', [EmployeeFormController::class, 'submitEmployeeResponse'])->name('emp-response.store');
 
 // Visitor response related routes
 Route::get('/visitor-response/create', [VisitorFormController::class, 'createResponse']);
@@ -24,10 +24,10 @@ Route::post('/visitor-response/submit', [VisitorFormController::class, 'submitVi
 // User related routes
 Route::middleware('auth', ChangePassword::class)->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('employee.index');
-    Route::post('/', [DashboardController::class, 'index'])->name('employee.index');
     Route::get('/employee-create', [DashboardController::class, 'create'])->name('employee.create');
     Route::get('/employee-list/{respondent}', [DashboardController::class, 'show'])->name('employee.show');
     Route::put('/employee-list/{respondent}', [DashboardController::class, 'update'])->name('employee.update');
+    Route::get('/response-logs', [DashboardController::class, 'responseLogsIndex'])->name('response-logs.index');
     Route::get('/response-filter', [DashboardController::class, 'showFilter'])->name('response.show');
 
     //Employee related routes
@@ -37,7 +37,8 @@ Route::middleware('auth', ChangePassword::class)->group(function(){
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destory');
-    Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 
     Route::get('/back', [ChangePasswordController::class, 'previousPage'])->name('previous.page');
 });

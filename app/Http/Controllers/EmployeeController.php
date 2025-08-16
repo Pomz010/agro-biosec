@@ -29,6 +29,6 @@ class EmployeeController extends Controller
         ]);
 
         // return $employee;
-        return redirect(route('employee.index'));
+        return redirect()->route('employee.index');
     }
 }
