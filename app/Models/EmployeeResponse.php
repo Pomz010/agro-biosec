@@ -6,23 +6,17 @@ use App\Models\Respondent;
 use App\Models\Questionnaire;
 use Illuminate\Database\Eloquent\Model;
 
-class Employee_response extends Model
+class EmployeeResponse extends Model
 {
     protected $fillable =[
         'respondents_id', 
         'business_unit', 
         'questionnaire_id', 
         'answer', 
-        'remarks'
+        'remarks',
+        'created_at',
+        'updated_at'
     ];
-
-    // public function respondent(){
-    //     return $this->belongsTo(Respondent::class);
-    // }
-
-    // public function Questionnaire(){
-    //     return $this->belongsTo(Questionnaire::class);
-    // }
 
     protected $table = 'employee_responses';
 

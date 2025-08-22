@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Models\Employee_response;
+use App\Models\EmployeeResponse;
 
 class Respondent extends Model
 {
@@ -18,7 +18,7 @@ class Respondent extends Model
     protected $table = 'respondents';
 
     public function response(): HasMany {
-        return $this->hasMany(Employee_response::class, 'respondents_id');
+        return $this->hasMany(EmployeeResponse::class, 'respondents_id');
     }
 
     public function user(){

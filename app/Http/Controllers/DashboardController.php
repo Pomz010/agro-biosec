@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee_response;
+use App\Models\EmployeeResponse;
 use App\Models\User;
 use App\Models\Respondent;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class DashboardController extends Controller
         ->get();
 
         // eager load respondents and questionnaires
-        $responses = Employee_response::with(['respondent', 'questionnaire'])->get();
+        $responses = EmployeeResponse::with(['respondent', 'questionnaire'])->get();
 
         // dd($emp_response);
         foreach($users as $user){

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Visitor_response extends Model
+class VisitorResponse extends Model
 {
     protected $fillable = [
         'business_unit',
