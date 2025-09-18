@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BusinessUnit extends Model
 {
     protected $fillable = ['bu_name'];
+
+    protected $table = 'business_units';
+
 }

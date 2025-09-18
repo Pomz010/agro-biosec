@@ -28,6 +28,7 @@ Route::middleware('auth', ChangePassword::class)->group(function(){
     Route::get('/employee-list/{respondent}', [DashboardController::class, 'show'])->name('employee.show');
     Route::put('/employee-list/{respondent}', [DashboardController::class, 'update'])->name('employee.update');
     Route::get('/response-logs', [DashboardController::class, 'responseLogsIndex'])->name('response-logs.index');
+    Route::post('/response-logs', [DashboardController::class, 'responseLogsFilter'])->name('response-logs-filter');
     Route::get('/response-filter', [DashboardController::class, 'showFilter'])->name('response.show');
 
     //Employee related routes

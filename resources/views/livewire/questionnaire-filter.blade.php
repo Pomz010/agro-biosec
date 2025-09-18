@@ -1,42 +1,57 @@
-<div class="grid grid-cols-4 gap-4 mb-4">
-<!-- Date range -->
-<div>
-    <label class="block text-sm">Start Date</label>
-    <input type="date" wire:model="startDate" class="w-full border rounded px-2 py-1">
-</div>
-
-<div>
-    <label class="block text-sm">End Date</label>
-    <input type="date" wire:model="endDate" class="w-full border rounded px-2 py-1">
-</div>
-
-<!-- Business Unit -->
-@if($group === 'employees')
+<div class="entry-logs-container">
     <div>
-        <label class="block text-sm">Business Unit</label>
-        <select wire:model="businessUnit" class="w-full border rounded px-2 py-1">
-            <option value="">All</option>
-            @foreach($businessUnits as $unit)
-                <option value="{{ $unit }}">{{ $unit }}</option>
-            @endforeach
-        </select>
+        <livewire:search-bar />
+        <div class="entry-logs__filter">
+            <select wire:model="group" class="">
+                <option value="employees">Employees</option>
+                <option value="visitors">Visitors</option>
+            </select>
+
+            @if($group === 'employees')
+                <select wire:model="businessUnit" class="">
+                    <option value="">-- Select Business Unit --</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                </select>
+            @endif
+
+            <input type="date" wire:model="startDate" class="">
+            <input type="date" wire:model="endDate" class="">
+
+            <button 
+                wire:click="applyFilters" 
+                class="apply-btn app-btn btn">
+                Apply
+            </button>
+        </div>
+        
     </div>
-@endif
 
-<!-- Group -->
-<div>
-    <label class="block text-sm">Group</label>
-    <select wire:model="group" class="w-full border rounded px-2 py-1">
-        <option value="employees">Employees</option>
-        <option value="visitors">Visitors</option>
-    </select>
-</div>
-
-<!-- Clear Filters Button -->
-<div class="col-span-4 flex justify-end">
-    <button wire:click="clearFilters"
-        class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded">
-        Clear Filters
-    </button>
-</div>
+    <div>
+        @if(!empty($results))
+            <table class="">
+                <thead>
+                    <tr class="">
+                        <th class="">ID</th>
+                        <th class="">Respondent</th>
+                        <th class="">Questionnaire</th>
+                        <th class="">Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($results as $result)
+                        <tr>
+                            <td class="">{{ $result->id }}</td>
+                            <td class="">{{ $result->respondent->firstname . " " . $result->respondent->lastname?? '-' }}</td>
+                            <td class="">{{ $result->questionnaire->question_text ?? '-' }}</td>
+                            <td class="">{{ $result->created_at }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p class="">No results yet. Apply filters to see data.</p>
+        @endif
+    </div>
 </div>

@@ -8,6 +8,7 @@
             id="employeeNameInputBox" 
             autocomplete="off" 
             value="{{ old('respondents_fullname') }}"
+            placeholder="Search for name"
         />
 
         <input

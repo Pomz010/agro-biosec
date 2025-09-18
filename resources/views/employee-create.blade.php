@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="button-container">
-                    <a href="{{ route('employee.index') }}" class="cancelBtn update-btn" id="cancelBtn" type="button">Back</a>
-                    <button class="update-btn" type="submit">Save Changes</button>
+                    <a href="{{ route('employee.index') }}" class="cancelBtn app-btn" id="cancelBtn" type="button">Back</a>
+                    <button class="save-btn app-btn" type="submit">Save Changes</button>
                 </div>
                 
             </form>

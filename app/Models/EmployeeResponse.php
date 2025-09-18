@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmployeeResponse extends Model
 {
+    protected $table = 'employee_responses';
+
     protected $fillable =[
         'respondents_id', 
         'business_unit', 
@@ -17,8 +19,6 @@ class EmployeeResponse extends Model
         'created_at',
         'updated_at'
     ];
-
-    protected $table = 'employee_responses';
 
     public function respondent()
     {

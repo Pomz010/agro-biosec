@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visitor_response;
+use App\Models\VisitorResponse;
 use Illuminate\Http\Request;
 
 class VisitorFormController extends Controller
@@ -52,7 +52,7 @@ class VisitorFormController extends Controller
         $response = array_map('mb_strtolower', $response);
 
         if($request->has('visitorVisitedOtherFarm_remarks')){
-            Visitor_response::create([
+            VisitorResponse::create([
                 'business_unit' => $response['business_unit'],
                 'lastname' => $response['lastname'],
                 'firstname' => $response['firstname'],
@@ -72,7 +72,7 @@ class VisitorFormController extends Controller
                 'remarks' =>  $response['visitorVisitedOtherFarm_remarks']
             ]);
         }else{
-            Visitor_response::create([
+            VisitorResponse::create([
                 'business_unit' => $response['business_unit'],
                 'lastname' => $response['lastname'],
                 'firstname' => $response['firstname'],
@@ -93,7 +93,7 @@ class VisitorFormController extends Controller
         }
 
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -112,7 +112,7 @@ class VisitorFormController extends Controller
             'answer' => $response['soreThroat'],
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -131,7 +131,7 @@ class VisitorFormController extends Controller
             'answer' => $response['bodyPain'],
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -150,7 +150,7 @@ class VisitorFormController extends Controller
             'answer' => $response['bodyPain']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -169,7 +169,7 @@ class VisitorFormController extends Controller
             'answer' => $response['fever']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -188,7 +188,7 @@ class VisitorFormController extends Controller
             'answer' => $response['headache']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -207,7 +207,7 @@ class VisitorFormController extends Controller
             'answer' => $response['nasalDischarge']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -226,7 +226,7 @@ class VisitorFormController extends Controller
             'answer' => $response['cough']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],
@@ -245,7 +245,7 @@ class VisitorFormController extends Controller
             'answer' => $response['allergies']
         ]);
 
-        Visitor_response::create([
+        VisitorResponse::create([
             'business_unit' => $response['business_unit'],
             'lastname' => $response['lastname'],
             'firstname' => $response['firstname'],

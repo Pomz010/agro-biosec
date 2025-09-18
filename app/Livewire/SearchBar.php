@@ -8,6 +8,7 @@ use App\Models\Respondent;
 class SearchBar extends Component
 {
     public $search = "";
+    public $searchBarClass = "";
 
     public function render()
     {

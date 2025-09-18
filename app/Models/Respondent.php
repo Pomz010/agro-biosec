@@ -22,6 +22,6 @@ class Respondent extends Model
     }
 
     public function user(){
-        return $this->hasOne(User::class, 'respondents_id');
+        return $this->hasOne(User::class, 'respondent_id');
     }
 }

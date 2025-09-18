@@ -1,77 +1,97 @@
 <x-layout>
-    
-    <div class="p-4 bg-white rounded shadow">
-        <livewire:questionnaire-filter />
-        {{-- <div class="grid grid-cols-4 gap-4 mb-4">
-            <!-- Date range -->
-            <div>
-                <label class="block text-sm">Start Date</label>
-                <input type="date" wire:model="startDate" class="w-full border rounded px-2 py-1">
-            </div>
 
-            <div>
-                <label class="block text-sm">End Date</label>
-                <input type="date" wire:model="endDate" class="w-full border rounded px-2 py-1">
-            </div>
+    <main class="response-logs__container">
+        <header class="header" id="adminPage">
+            <x-header-nav :currentUser="$user" navActive="response-management" />
+            {{-- <nav class="header-nav">
+                <ul>
+                    <span id="headerNavContainer">
+                        <li><a href="#"><img src="./img/apc_logo2.png" alt="Navigation Logo" width="35" height="35"></a></li>
+                        <li class="nav-links"><a href="#">Employee Management</a></li>
+                        <li class="nav-active nav-links"><a href="#">Entry Logs</a></li>
+                        <li class="nav-links"><a href="#">User Management</a></li>
+                    </span>
+                    <span>
+                        <li>Hi, Rolly!</li>
+                        <li><a href="#">Reset Password</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </span>                
+                </ul>
+            </nav> --}}
+        </header>
 
-            <!-- Business Unit -->
-            @if($group === 'employees')
-                <div>
-                    <label class="block text-sm">Business Unit</label>
-                    <select wire:model="businessUnit" class="w-full border rounded px-2 py-1">
-                        <option value="">All</option>
-                        @foreach($businessUnits as $unit)
-                            <option value="{{ $unit }}">{{ $unit }}</option>
-                        @endforeach
-                    </select>
+        <section class="filter-section">
+            <form class="filter-form" id="filterForm" action="{{ route('response-logs-filter') }}" method="POST">
+                @csrf
+                <div class="searchbox-filter__container filter-group">
+                    <p class="filter-label" class="filter-label">Filter by</p>
+                    <livewire:form-search-bar />
                 </div>
-            @endif
 
-            <!-- Group -->
-            <div>
-                <label class="block text-sm">Group</label>
-                <select wire:model="group" class="w-full border rounded px-2 py-1">
-                    <option value="employees">Employees</option>
-                    <option value="visitors">Visitors</option>
-                </select>
-            </div>
+                <div class="filter-parameters__container filter-group">
+                    <div class="filter-parameters">
+                        <span>
+                            <label class="filter-label" for="from">From</label>
+                            <input class="entry-logs__filter-input" type="date" name="from" id="">
+                        </span>                    
 
-            <!-- Clear Filters Button -->
-            <div class="col-span-4 flex justify-end">
-                <button wire:click="clearFilters"
-                    class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded">
-                    Clear Filters
-                </button>
-            </div>
-        </div> --}}
+                        <span>
+                            <label class="filter-label" for="to">To</label>
+                            <input class="entry-logs__filter-input" type="date" name="to" id="">
+                        </span>
 
-    <!-- Results -->
-        <div>
-            @if($results->count())
-                <table class="w-full border-collapse border">
-                    <thead>
-                        <tr class="bg-gray-200">
-                            <th class="border p-2">Name</th>
-                            <th class="border p-2">Questionnaire</th>
-                            <th class="border p-2">Answer</th>
-                            <th class="border p-2">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($results as $res)
-                            <tr>
-                                <td class="border p-2">{{ $res->respondent->name ?? 'N/A' }}</td>
-                                <td class="border p-2">{{ $res->questionnaire->title ?? '' }}</td>
-                                <td class="border p-2">{{ $res->answer }}</td>
-                                <td class="border p-2">{{ $res->created_at->format('Y-m-d') }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                        <span>
+                            <label class="filter-label" for="filter-bu">Business Unit</label>
+                            <select class="entry-logs__filter-input" name="filter-bu" id="">
+                                <option value="all">All</option>
+                                <option value="bulacan">Bulacan</option>
+                                <option value="gerona-a">Gerona A</option>
+                                <option value="gerona-b">Gerona B</option>
+                            </select>
+                        </span>
+
+                        <span>
+                            <label class="filter-label" for="filter-group">Group</label>
+                            <select class="entry-logs__filter-input" name="filter-group">
+                                <option value="employees">Employees</option>
+                                <option value="visitors">Visitors</option>
+                            </select>
+                        </span>
+                    </div>
+
+                    <div>
+                        <button class="filter-applyBtn btn" type="submit">Apply filter</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="filter-results">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Business Unit</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Remarks</th>
+                        <th>Date</th>
+                    </tr>
+
+                    @foreach ($responses as $res)
+                    {{-- @dd($res) --}}
+                    <tr>
+                        <td>{{ $res->respondent->firstname }} {{ $res->respondent->lastname }}</td>
+                        <td>{{ $res->business_unit }}</td>
+                        <td>{{ $res->questionnaire->question_text }}</td>
+                        <td>{{ $res->answer }}</td>
+                        <td>{{ $res->remarks ? '' : 'N/A' }}</td>
+                        <td>{{ $res->created_at }}</td>
+                    </tr>
+                    @endforeach
+
                 </table>
-            @else
-                <p class="text-gray-500">No results found.</p>
-            @endif
-        </div>
-    </div>
+            </div>
+        </section>
+    </main>
+
 
 </x-layout>

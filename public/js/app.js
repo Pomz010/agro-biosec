@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Select input box value from employee searchbox result
-    if(document.querySelector('#employeeForm')){
+    if(document.querySelector('#employeeForm') || document.querySelector('#filterForm')){
         const searchBox = document.querySelector('#employeeNameInputBox');
 
             searchBox.focus();

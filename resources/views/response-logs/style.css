@@ -30,7 +30,6 @@ li {
 
 body {
     background: url("../img/bg2.jpg") no-repeat;
-    background-color: #f8f8f8;
     background-attachment: fixed;
     background-size: cover;
     font-family: "Red Hat display", Arial, Helvetica, sans-serif;
@@ -738,6 +737,7 @@ tr:nth-child(even) {
 }
 
 .create-userBtn{
+    background-color: rgb(39, 151, 67);
     padding: 0.25rem 1rem;
 }
 
@@ -864,7 +864,6 @@ tr:nth-child(even) {
     font-weight: bold;
     outline: none;
     letter-spacing: 1px;
-    background-color: rgb(39, 151, 67);
 }
 
 .delete-user-btn--modal{
@@ -897,62 +896,15 @@ tr:nth-child(even) {
 .filter-section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1rem;
-}
-
-.filter-form {
-    padding: 1.25rem;
-    grid-column: 2 / span 10;
-    margin-top: 1rem;
-    box-shadow: 1.5px 4.5px 150px rgb(171 168 168);
-    border-radius: 10px;
-}
-
-.searchbox-filter__container p {
-    margin-bottom: 1rem;
-}
-
-.filter-parameters__container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.filter-parameters span {
-    margin-right: 2rem;
 }
 
 .filter-group {
-    align-items: center;
-}
-
-.filter-searchbar {
-    width: 100%;
-    padding: 0.5rem;
-}
-
-.filter-results {
+    padding: 1.25rem;
     grid-column: 2 / span 10;
+    margin-top: 1rem;
 }
 
-.filter-results table {
-    border-radius: 10px;
-}
-
-.entry-logs__filter-input {
-    padding: 0.25rem 0.5rem;
-    width: 10rem;
-    margin-left: 0.5rem;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(197, 197, 197);
-}
-
-.filter-applyBtn.btn {
-    padding: 0.25rem 1.5rem;
-    color: rgb(255, 255, 255);
-}
-
-.filter-label {
-    font-weight: bold;
+.searchbox-filter__container {
 }
 
 /* MEDIA QUERY */

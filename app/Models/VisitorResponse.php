@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class VisitorResponse extends Model
 {
+    protected $table = 'visitor_responses';
+    
     protected $fillable = [
         'business_unit',
         'lastname',

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Homepage</title>
+</head>
+<body>
+
+    <main class="response-logs__container">
+        <header class="header" id="adminPage">
+            <nav class="header-nav">
+                <ul>
+                    <span id="headerNavContainer">
+                        <li><a href="#"><img src="./img/apc_logo2.png" alt="Navigation Logo" width="35" height="35"></a></li>
+                        <li class="nav-links"><a href="#">Employee Management</a></li>
+                        <li class="nav-active nav-links"><a href="#">Entry Logs</a></li>
+                        <li class="nav-links"><a href="#">User Management</a></li>
+                    </span>
+                    <span>
+                        <li>Hi, Rolly!</li>
+                        <li><a href="#">Reset Password</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </span>                
+                </ul>
+            </nav>
+        </header>
+
+        <section class="filter-section">
+            <form class="filter-container" action="#" method="POST">
+                <div class="searchbox-filter__container filter-group">
+                    <p>Filter by</p>
+                    <input class="filter-searchbar" type="search" placeholder="Seach by name">
+                </div>
+
+                <div class="filter-parameters__container filter-group">
+                    <div class="filter-parameters">
+                        <span>
+                            <label for="">From</label>
+                            <input class="entry-logs__filter-input" type="date" name="" id="">
+                        </span>                    
+
+                        <span>
+                            <label for="">To</label>
+                            <input class="entry-logs__filter-input" type="date" name="" id="">
+                        </span>
+
+                        <span>
+                            <label for="entry-logs__filter-input">Business Unit</label>
+                            <select class="" name="business-unit" id="">
+                                <option value="">All</option>
+                                <option value="">Bulacan</option>
+                                <option value="">Gerona A</option>
+                                <option value="">Gerona B</option>
+                            </select>
+                        </span>
+
+                        <span>
+                            <label for="">Group</label>
+                            <select class="entry-logs__filter-input" name="group" id="">
+                                <option value="">Employees</option>
+                                <option value="">Visitors</option>
+                            </select>
+                        </span>
+                    </div>
+
+                    <div>
+                        <button class="entry-logs__filter-input" type="submit">Apply filter</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="filter-results">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Business Unit</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Remarks</th>
+                        <th>Date</th>
+                    </tr>
+
+                    <tr>
+                        <td>Rolly Castillo</td>
+                        <td>Parsolingan Gerona</td>
+                        <td>Have you travelled to other farm within 24hrs?</td>
+                        <td>No</td>
+                        <td>N/A</td>
+                        <td>August 29, 2025</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

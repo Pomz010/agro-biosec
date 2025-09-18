@@ -9,9 +9,51 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
+use PHPUnit\Framework\Constraint\IsEmpty;
+
+use function PHPUnit\Framework\isEmpty;
 
 class DashboardController extends Controller
 {
+    public function responseLogsFilter(Request $request) {
+
+        $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
+            ->select(
+                'users.id',
+                'respondents.firstname', 
+            )
+            ->get();
+
+        // eager load respondents and questionnaires
+        $responses = EmployeeResponse::with(['respondent', 'questionnaire'])->get();
+
+        // 1. Validate inputs
+        $validated = $request->validate([
+            'respondents_fullname'        => 'nullable|string|max:255',
+            'respondents_id'              => 'nullable|int',
+            'from'          => 'nullable|date',
+            'to'            => 'nullable|date|after_or_equal:from',
+            'filter-bu' => 'nullable|in:all, gerona-a, gerona-b', // adjust values
+            'filter-group'         => 'nullable|in:employees, visitors', // adjust values
+        ]);
+
+        
+
+        // dd($validated['respondents_id']);
+
+        if(!empty($validated['respondents_id'])){
+            $responses = EmployeeResponse::where('respondents_id', $validated['respondents_id'])->get();
+
+            foreach($users as $user){
+                if($user->id === Auth::user()->id){
+                    return view('response-logs', ['user' => $user, 'responses' => $responses]);
+                }
+            };
+            
+        } 
+
+    }
+
     public function responseLogsIndex(){
         $users = User::join('respondents', 'users.respondent_id', '=', 'respondents.id')
         ->select(
@@ -23,7 +65,6 @@ class DashboardController extends Controller
         // eager load respondents and questionnaires
         $responses = EmployeeResponse::with(['respondent', 'questionnaire'])->get();
 
-        // dd($emp_response);
         foreach($users as $user){
             if($user->id === Auth::user()->id){
                 return view('response-logs', ['user' => $user, 'responses' => $responses]);

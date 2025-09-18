@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee_Response;
+use App\Models\EmployeeResponse;
 use Illuminate\Http\Request;
 use App\Models\Respondent;
 use Mockery\Matcher\Not;
@@ -52,7 +52,7 @@ class EmployeeFormController extends Controller
         $response = array_map('mb_strtolower', $response);
 
         if($request->has('employeeVisitedOtherFarm_remarks')){
-            Employee_Response::create([
+            EmployeeResponse::create([
                 'respondents_id' => $response['respondents_id'],
                 'business_unit' => $response['business_unit'],
                 'questionnaire_id' => $response['questionnaire_1'],
@@ -60,7 +60,7 @@ class EmployeeFormController extends Controller
                 'remarks' =>$response['employeeVisitedOtherFarm_remarks']
             ]);
         } else {
-            Employee_Response::create([
+            EmployeeResponse::create([
                 'respondents_id' => $response['respondents_id'],
                 'business_unit' => $response['business_unit'],
                 'questionnaire_id' => $response['questionnaire_1'],
@@ -69,7 +69,7 @@ class EmployeeFormController extends Controller
         }
 
         if($request->has('travelledOutsideCity_remarks')){
-            Employee_Response::create([
+            EmployeeResponse::create([
                 'respondents_id' => $response['respondents_id'],
                 'business_unit' => $response['business_unit'],
                 'questionnaire_id' => $response['questionnaire_2'],
@@ -77,7 +77,7 @@ class EmployeeFormController extends Controller
                 'remarks' => $response['travelledOutsideCity_remarks']
             ]);
         }else{
-            Employee_Response::create([
+            EmployeeResponse::create([
                 'respondents_id' => $response['respondents_id'],
                 'business_unit' => $response['business_unit'],
                 'questionnaire_id' => $response['questionnaire_2'],
@@ -85,70 +85,70 @@ class EmployeeFormController extends Controller
             ]);
         }
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_3'],
             'answer' => $response['soreThroat']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_4'],
             'answer' => $response['bodyPain']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_5'],
             'answer' => $response['fever']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_6'],
             'answer' => $response['headache']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_7'],
             'answer' => $response['nasalDischarge']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_8'],
             'answer' => $response['cough']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_9'],
             'answer' => $response['wearCleanClothes']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_10'],
             'answer' => $response['prohibitPoultryProducts']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_11'],
             'answer' => $response['decontamination']
         ]);
 
-        Employee_Response::create([
+        EmployeeResponse::create([
             'respondents_id' => $response['respondents_id'],
             'business_unit' => $response['business_unit'],
             'questionnaire_id' => $response['questionnaire_12'],
